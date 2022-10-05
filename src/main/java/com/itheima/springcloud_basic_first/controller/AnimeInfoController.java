@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/animeInfo")
+@RestController
 public class AnimeInfoController {
 
 
@@ -27,9 +29,13 @@ public class AnimeInfoController {
 
 
     @GetMapping
-    public void testGetAllAnimeInfo(){
+    public Object testGetAllAnimeInfo(){
         List<AnimeInfo> animeInfos = animeInfoBase.selectList(null);
+        System.out.println();
+        System.out.println();
+        System.out.println();
         animeInfos.forEach(System.out::println);
+        return animeInfos;
     }
 
 

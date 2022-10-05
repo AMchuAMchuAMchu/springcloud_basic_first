@@ -1,7 +1,13 @@
 package com.itheima.springcloud_basic_first.controller;
 
+import com.itheima.springcloud_basic_first.dao.AnimeInfoBase;
+import com.itheima.springcloud_basic_first.pojo.AnimeInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * Description ==> TODO
@@ -14,6 +20,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/animeInfo")
 public class AnimeInfoController {
+
+
+    @Autowired
+    private AnimeInfoBase animeInfoBase;
+
+
+    @GetMapping
+    public void testGetAllAnimeInfo(){
+        List<AnimeInfo> animeInfos = animeInfoBase.selectList(null);
+        animeInfos.forEach(System.out::println);
+    }
+
+
+
+
+
 
 
 
